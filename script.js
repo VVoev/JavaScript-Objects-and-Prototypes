@@ -1,24 +1,18 @@
 'use strict';
 
-var arr = ['red', 'green', 'blue'];
+function Cat(name, color) {
+    this.name = name;
+    this.color = color;
+}
 
-Object.defineProperty(arr, 'last', {
-    get: function () {
-        return this[this.length - 1];
-    }
-})
+Cat.prototype.age = 3;
+var cat1 = new Cat('Fluffy', 'white');
+var cat2 = new Cat('Muffin', "Brown");
 
-var last = arr.last;
-display(last);
+cat1.age = 21;
 
+display(cat1.age);
+display(cat1.__proto__.age);
 
-Object.defineProperty(Array.prototype, 'last', {
-    get: function () {
-        return this[this.length - 1];
-    }
-})
-
-var arr1 = ['red', 'green', 'drugoBlue'];
-var arr2 = [5, 10, 15];
-display(arr1.last)
-display(arr2.last);
+console.log(cat1);
+console.log(cat2);
