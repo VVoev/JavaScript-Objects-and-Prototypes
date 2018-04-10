@@ -11,7 +11,11 @@ var cat = {
 cat['eye color'] = 'green';
 
 
-Object.defineProperty(cat, 'name', { writable: false });
-Object.freeze(cat.name);
-cat.name.first = 'NewCat';
-display(cat.name);
+Object.defineProperty(cat, 'name', { enumerable: false })
+
+for (var property in cat) {
+    display(property + ' ' + cat[property]);
+}
+
+
+display(Object.keys(cat));
