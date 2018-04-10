@@ -1,18 +1,18 @@
 'use strict';
 
-var cat = Object.create(Object.prototype,
-    {
-        name: {
-            value: 'Fluffy',
-            enumerable: true,
-            writable: true,
-            configurable: true
-        },
-        color: {
-            value: 'White',
-            enumerable: true,
-            writable: true,
-            configurable: true
-        }
-    });
+class Cat {
+    constructor(name, color) {
+        this.name = name;
+        this.color = color;
+    }
+
+    speak() {
+        display('Meow');
+    }
+}
+
+var cat = new Cat("Fluffy", "white");
+cat.speak();
+
+
 display(cat);
