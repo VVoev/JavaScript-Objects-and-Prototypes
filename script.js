@@ -1,11 +1,17 @@
 'use strict';
 
 var cat = {
-    name: 'Fluffy',
+    name: {
+        first: 'Flyffy',
+        last: 'Muffy'
+    },
     color: 'White'
 }
 
 cat['eye color'] = 'green';
 
-display(Object.getOwnPropertyDescriptor(cat, 'color'))
-display('xaxa');    
+
+Object.defineProperty(cat, 'name', { writable: false });
+Object.freeze(cat.name);
+cat.name.first = 'NewCat';
+display(cat.name);
