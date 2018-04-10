@@ -1,24 +1,24 @@
 'use strict';
 
-var cat = {
-    name: {
-        first: 'Flyffy',
-        last: 'Muffy'
-    },
-    color: 'White'
-}
+var arr = ['red', 'green', 'blue'];
 
-Object.defineProperty(cat, 'fullname', {
+Object.defineProperty(arr, 'last', {
     get: function () {
-        return this.name.first + ' ' + this.name.last
-    },
-
-    set: function (value) {
-        var nameparts = value.split(' ');
-        this.name.first = nameparts[0];
-        this.name.last = nameparts[1];
+        return this[this.length - 1];
     }
 })
-display(cat.fullname);
-cat.fullname = "Orange Drag";
-display(cat.fullname);
+
+var last = arr.last;
+display(last);
+
+
+Object.defineProperty(Array.prototype, 'last', {
+    get: function () {
+        return this[this.length - 1];
+    }
+})
+
+var arr1 = ['red', 'green', 'drugoBlue'];
+var arr2 = [5, 10, 15];
+display(arr1.last)
+display(arr2.last);
