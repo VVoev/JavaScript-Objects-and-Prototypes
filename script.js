@@ -8,14 +8,8 @@ var cat = {
     color: 'White'
 }
 
-cat['eye color'] = 'green';
+//once set to false cannot be returned
+Object.defineProperty(cat, 'name', { configurable: false });
 
 
-Object.defineProperty(cat, 'name', { enumerable: false })
-
-for (var property in cat) {
-    display(property + ' ' + cat[property]);
-}
-
-
-display(Object.keys(cat));
+Object.defineProperty(cat, 'name', { configurable: true });
